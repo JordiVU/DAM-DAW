@@ -1,0 +1,174 @@
+/* ESTILOS GENERALES */
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(243, 243, 243);
+}
+
+header {
+    background-color: rgb(28, 28, 54);
+    color: white;
+    padding: 10px;
+}
+
+footer {
+    background-color: rgb(217, 217, 217);
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+    font-size: 30px;
+}
+
+h1 {
+    margin-top: 17px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 120px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 7px;
+}
+
+a:hover {
+    background-color: rgb(94, 94, 151);
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none;
+    text-align: right;
+    margin-right: 50px;
+}
+
+nav li {
+    display: inline;
+    font-size: 50px;
+    padding: 40px;
+}
+
+button {
+    font-size: 40px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid rgb(228, 227, 227);
+    background-color: rgb(211, 211, 214);
+}
+
+button:hover {
+    background-color: rgb(150, 150, 213);
+}
+
+
+/* APARTADO PRINCIPAL */
+
+.principal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+}
+
+.principal img{
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.principal aside {
+    height: 100%;
+    width: 100%;
+}
+
+.principal article {
+    text-align: left;
+    font-size: 45px;
+    padding: 70px;
+}
+
+.principal article p {
+    font-size: 40px;
+}
+
+
+/* APARTADO DE CURSOS */
+
+.curso {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 3px;
+    border-bottom: 2px solid rgb(194, 193, 193);
+    margin: 20px 150px; /* antes era 150px, ahora menos */
+    margin-top: 20px;
+}
+
+.curso article {
+    font-size: 40px;
+    padding: 0px;
+    width: 100%;
+}
+
+.curso article p {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.curso article h3 {
+    font-size: 60px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.button-matricular {
+    text-align: left;
+    padding-top: 55%;
+    width: 100%;
+}
+
+.curso button {
+    display: block;
+    margin-right: auto;
+}
+
+/* APARTADO CONTACTO */
+
+.contacto {
+    margin-left: 150px;
+    font-size: 60px;
+}
+
+.contacto h2 {
+    font-size: 100px;
+}
+
+label, input, textarea {
+    display: block;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 90%;
+    height: 70px;
+    border-radius: 8px;
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid rgb(194, 193, 193);
+}
+
+textarea {
+    height: 120px;
+}
+
+.contacto button {
+    display: block;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: 8%; 
+}
+

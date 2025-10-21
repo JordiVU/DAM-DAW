@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio enlaces con iconos</title>
+
+    <style>
+        ul {
+            background-color: aquamarine;
+            list-style: none;
+            text-align: center;
+        }
+
+        ul li {
+            display: inline;
+            margin: 3%;
+        }
+
+        ul li a {
+            text-decoration: none;
+            display: inline-block;
+            padding: 1rem;
+            color: black;
+            background-size: 2rem;
+        }
+
+        ul li a:hover {
+            background-color: plum;
+            color: black;
+        }
+
+        .facebook {
+            background: url('iconos/facebook.png') no-repeat 0% 50%;
+        }
+
+        .twitter {
+            background: url('iconos/twitter.png') no-repeat 100% 50%;
+        }
+
+        .ig {
+            background: url('iconos/instagram.png') no-repeat 100% 50%;
+        }
+    </style>
+</head>
+<body>
+    <p>Puedes seguirme en:</p>
+    <ul>
+        <li><a class="facebook" href="">Facebook</a></li>
+        <li><a class="twitter" href="">Twitter</a></li>
+        <li><a class="ig" href="">Instagram</a></li>
+    </ul>
+</body>
+</html>

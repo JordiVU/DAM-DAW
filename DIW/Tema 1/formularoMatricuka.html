@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Matricula</title>
+</head>
+<body>
+    <form action="hola.php" method="POST">
+        <h1>Formulario de matricula</h1>
+        <label>
+            Nombre completo: <input type="text" required>
+        </label>
+        <br>
+        <label>
+            Correo electrónico: <input type="email" required>
+        </label>
+        <br>
+        <label>
+            Fecha de nacimiento: <input type="date">
+        </label>
+        <br>
+        <label>
+            Hermanos en el centro: <input type="number" min="0" max="10">
+        </label>
+        <br>
+        <label>
+            Teléfono móvil de contacto: <input type="number" pattern="[6-8][0-9]{8}">
+        </label>
+        <br>
+        <label>
+            Ciclo seleccionado:
+            <select name="ciclo">
+                <option value="ASIR">ASIR</option>
+                <option value="DAM">DAM</option>
+                <option value="DAW">DAW</option>
+            </select>
+        </label>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

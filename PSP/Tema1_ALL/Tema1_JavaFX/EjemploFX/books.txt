@@ -1,0 +1,12 @@
+10;The Da Vinci Code;Dan Brown;Thriller;Robert Langdon
+3;Dune;Frank Herbert;Science Fiction;Dune Series
+2;One Hundred Years of Solitude;Gabriel García Márquez;Magical Realism; 
+6;1984;George Orwell;Dystopian; 
+7;A Game of Thrones;George R.R. Martin;Fantasy;A Song of Ice and Fire
+5;Harry Potter and the Sorcerer's Stone;J.K. Rowling;Fantasy;Harry Potter
+8;The Hobbit;J.R.R. Tolkien;Fantasy;The Lord of the Rings
+9;Pride and Prejudice;Jane Austen;Romance; 
+4;The Pillars of the Earth;Ken Follett;Historical Fiction;The Pillars of the Earth
+12;Ender's game ;Orson Scott Card;Science Fiction;Ender
+1;The Name of the Wind2;Patrick Rothfuss;Fantasy;The Kingkiller Chronicle
+2;Jordi;The Jordi;Mistery;Trilogia

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1> Rellena tus datos </h4>
+    <form action="hola.php" method="POST">
+        <label>
+            Nombre
+            <br>
+            <input type="text">
+        </label>
+        <br>
+        <label>
+            Apellidos
+            <br>
+            <input type="text">
+        </label>
+        <br>
+        <label>
+            E-Mail
+            <br>
+            <input type="email">
+        </label>
+        <br>
+        <label>
+            DNI
+            <br>
+            <input type="text">
+        </label>
+        <br>
+        <label>
+            Idioma materno
+            <br>
+            <input type="radio" value="Castellano"> Castellano
+            <br>
+            <input type="radio" value="Valenciano"> Valenciano
+            <br>
+            <input type="radio" value="Otros"> Otros
+        </label>
+        <br>
+        <label>
+            Subir mi foto <input type="file">
+        </label>
+        <br>
+        <label>
+            <input type="checkbox" value="verDatos"> Permitir que otros puedan ver mis datos
+        </label>
+        <br>
+        <button type="submit"> Guardar cambios</button>
+        <button type="reset"> Borrar todos los datos introducidos</button>
+    </form>
+</body>
+</html>
