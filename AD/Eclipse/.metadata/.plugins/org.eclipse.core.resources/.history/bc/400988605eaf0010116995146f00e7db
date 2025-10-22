@@ -1,0 +1,28 @@
+import modules.GestionFicheros;
+
+// Jordi Vázquez Uribe
+// Programa principal de lecturas de cabezeras IDv3 y guardado en binario.
+public class Main {
+    public static void main(String[] args) {
+    	
+    	// Si el operador no es -E o -L lo informa.
+        if (!args[0].equals("-E") && !args[0].equals("-L")) {
+            System.out.println("Introduce un modo de operacion valido.");
+        } 
+        // Si no hay una ruta tras el operador lo informa.
+        else if(args.length == 1) {
+            System.out.println("Introduce una ruta valida.");
+        }
+        else
+        {
+        	if(args[0].equals("-E")) {
+        		GestionFicheros gFicheros = new GestionFicheros(args[1]);
+        		gFicheros.escanearFichero();
+        	} 
+        	else if(args[0].equals("-L")) {
+        		GestionBinario gBinario = new GestionBinario(args[1]);
+        		Ficheros.lecturaFichero(args[1]);
+        	}
+        }
+    }
+}

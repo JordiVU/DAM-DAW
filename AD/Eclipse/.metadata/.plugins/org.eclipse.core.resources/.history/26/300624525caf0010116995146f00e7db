@@ -1,0 +1,58 @@
+package modules;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Date;
+
+public class GestionFicheros {
+	private String rutaFichero;
+    private File[] archivosLista;
+	
+	 public GestionFicheros(String rutaFichero) {
+		 this.rutaFichero = rutaFichero;
+	 }
+	 
+    public void escanearFichero()
+    {
+        //Lectura del fichero por linea, en caso de existir un error salta un mensaje.
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                File carpeta = new File(linea.trim());
+
+                //Si la ruta no existe o no es una carpeta salta mensaje y fin de programa.
+                if (!carpeta.exists() || !carpeta.isDirectory()) {
+                    System.out.println("Ruta no valida o no es carpeta: " + linea);
+                }
+                else {
+                    System.out.println("Buscando en: " + linea);
+                	//Asignamos el array con los archivos de la carpeta.
+                    archivosLista = carpeta.listFiles();
+                    buscarMp3Recursivo(carpeta);
+                    System.out.println();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR al leer el fichero: " + e.getMessage());
+        }
+    }
+    
+    // Método recursivo que busca ficheros .mp3
+    public void buscarMp3Recursivo(File carpeta) {
+    	
+        if (archivosLista != null) {
+            for (File archivo : archivosLista) {
+            	// Si es archivo y termina en .mp3.
+                if (archivo.isFile() && archivo.getName().toLowerCase().endsWith(".mp3")) {
+                    System.out.println("   MP3 encontrado: " + archivo.getAbsolutePath());
+                    CabezeraIDv3 cabezeraInfo = new CabezeraIDv3(archivo.getAbsolutePath());
+                } else if (archivo.isDirectory()) {
+                    // Llamada recursiva si es un directorio.
+                    buscarMp3Recursivo(archivo);
+                }
+            }
+        }
+    }
+}

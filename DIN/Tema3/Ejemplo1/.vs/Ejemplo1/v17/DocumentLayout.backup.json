@@ -1,0 +1,99 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|d:\\github\\dam-daw\\din\\tema3\\ejemplo1\\ejemplo1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|solutionrelative:ejemplo1\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|d:\\github\\dam-daw\\din\\tema3\\ejemplo1\\ejemplo1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|solutionrelative:ejemplo1\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Ejemplo1||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|d:\\github\\dam-daw\\din\\tema3\\ejemplo1\\ejemplo1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|solutionrelative:ejemplo1\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5103A69B-A256-4C64-B49E-F76168BA3393}|Ejemplo1\\Ejemplo1.csproj|d:\\github\\dam-daw\\din\\tema3\\ejemplo1\\ejemplo1\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Ejemplo1",
+              "DocumentMoniker": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\Ejemplo1.csproj",
+              "RelativeDocumentMoniker": "Ejemplo1\\Ejemplo1.csproj",
+              "ToolTip": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\Ejemplo1.csproj",
+              "RelativeToolTip": "Ejemplo1\\Ejemplo1.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-10-21T17:48:23.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\App.xaml",
+              "RelativeDocumentMoniker": "Ejemplo1\\App.xaml",
+              "ToolTip": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\App.xaml",
+              "RelativeToolTip": "Ejemplo1\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-21T17:48:19.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Ejemplo1\\MainWindow.xaml",
+              "ToolTip": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\MainWindow.xaml",
+              "RelativeToolTip": "Ejemplo1\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-21T17:43:11.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Ejemplo1\\MainWindow.xaml.cs",
+              "ToolTip": "D:\\GitHub\\DAM-DAW\\DIN\\Tema3\\Ejemplo1\\Ejemplo1\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Ejemplo1\\MainWindow.xaml.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowDYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T17:43:10.68Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

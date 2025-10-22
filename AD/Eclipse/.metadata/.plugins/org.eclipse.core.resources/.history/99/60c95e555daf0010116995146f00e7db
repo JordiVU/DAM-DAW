@@ -1,0 +1,69 @@
+package modules;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.RandomAccessFile;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+public class CabezeraIDv3 {
+	private String archivo;
+	
+	public CabezeraIDv3(String archivo) {
+		this.archivo = archivo;
+	}
+	
+    public void lecturaBinario() {
+   	 
+   	 try (RandomAccessFile raf = new RandomAccessFile(archivo, "r")) {
+	    	 if (raf.length() < 128) {
+		    	 System.out.println("El archivo es demasiado pequeño para contener una cabecera ID3v1.");
+		    	 return;
+	    	 }
+	    	 
+	    	 // Ir a los últimos 128 bytes
+	    	 raf.seek(raf.length() - 128);
+	    	 byte[] buffer = new byte[128];
+	    	 raf.readFully(buffer);
+	    	 
+	    	 // Comprobacion de que es una cabecera ID3v1
+	    	 String tag = new String(buffer, 0, 3, StandardCharsets.ISO_8859_1);
+	    	 if (!"TAG".equals(tag)) {
+		    	 System.out.println("No se encontró cabecera ID3v1 en este archivo.");
+		    	 return;
+	    	 }
+	    	 
+	    	 // Convertido a tipo File para poder trabajar con el.
+	    	 File f = new File(archivo);
+	    	 
+	    	 Date fechaAlta = new Date(f.lastModified());
+	    	 String titulo = new String(buffer, 3, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 String artista = new String(buffer, 33, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 String album = new String(buffer, 63, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 String anio = new String(buffer, 93, 4, StandardCharsets.ISO_8859_1).trim();
+	    	 String comentario = new String(buffer, 97, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 
+	    	 int genero = buffer[127] & 0xFF;
+	    	 
+	    	 System.out.println("== Cabecera ID3v1 ==");
+	    	 System.out.println("Fecha de Alta: " + fechaAlta);
+	    	 System.out.println("Título: " + titulo);
+	    	 System.out.println("Artista: " + artista);
+	    	 System.out.println("Álbum: " + album);
+	    	 System.out.println("Año: " + anio);
+	    	 System.out.println("Comentario: " + comentario);
+	    	 System.out.println("Género (código): " + genero);
+	    	 
+	    	 iTunes atributosITunes = new iTunes();
+	    	 atributosITunes.peticionITunes(titulo, artista);
+	    	 
+	    	 GestionBinario bin = new GestionBinario();
+	    	
+	    	 
+   	 	} catch (IOException e) {
+   		 e.printStackTrace();
+		 }
+    }
+}

@@ -1,0 +1,37 @@
+package modules;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+
+public class GestionBinario {
+	
+	 private Date fechaAlta;
+	 private String titulo;
+	 private String artista;
+	 private String album;
+	 private String anio;
+	 private String comentario;
+	 private int genero;
+	 
+	 public GestionBinario(Date fechaAlta, String titulo, String artista, String album, String anio,
+			 String comentario, int genero) {
+		 this.fechaAlta = fechaAlta;
+		 this.album = album;
+		 this.anio = anio;
+	 }
+	
+	
+	 try (FileOutputStream fos = new FileOutputStream("cancion.bin");
+			 ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+		 
+		 	// Creamos la cancion de forma serializada en un archivo cancion.bin
+    	 	Cancion cancion = new Cancion(fechaAlta, titulo, artista, album, anio, comentario, genero);
+			oos.writeObject(cancion);
+			
+	 	} catch (IOException e) {
+			e.printStackTrace();
+	 	}
+}

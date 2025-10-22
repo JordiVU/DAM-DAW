@@ -1,0 +1,148 @@
+package modules;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.RandomAccessFile;
+import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import modules.iTunes;
+
+// Clase encargada e guardar las funciones relacionadas a ficheros.
+public class Ficheros {
+    public static void escanearFichero(String rutaF)
+    {
+        String rutaFichero = rutaF;
+
+        //Lectura del fichero por linea, en caso de existir un error salta un mensaje.
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                File carpeta = new File(linea.trim());
+
+                //Si la ruta no existe o no es una carpeta salta mensaje y fin de programa.
+                if (!carpeta.exists() || !carpeta.isDirectory()) {
+                    System.out.println("Ruta no valida o no es carpeta: " + linea);
+                }
+                else {
+                    System.out.println("Buscando en: " + linea);
+                    buscarMp3Recursivo(carpeta);
+                    System.out.println();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR al leer el fichero: " + e.getMessage());
+        }
+    }
+  
+
+    // Método recursivo que busca ficheros .mp3
+    public static void buscarMp3Recursivo(File carpeta) {
+    	
+    	//Creamos un array con los archivos de la carpeta.
+        File[] archivos = carpeta.listFiles();
+
+        if (archivos != null) {
+            for (File archivo : archivos) {
+            	// Si es archivo y termina en .mp3.
+                if (archivo.isFile() && archivo.getName().toLowerCase().endsWith(".mp3")) {
+                    System.out.println("   MP3 encontrado: " + archivo.getAbsolutePath());
+                    lecturaBinario(archivo.getAbsolutePath());
+                } else if (archivo.isDirectory()) {
+                    // Llamada recursiva si es un directorio.
+                    buscarMp3Recursivo(archivo);
+                }
+            }
+        }
+    }
+    
+
+     public static void lecturaBinario(String archivo) {
+    	 
+    	 try (RandomAccessFile raf = new RandomAccessFile(archivo, "r")) {
+	    	 if (raf.length() < 128) {
+		    	 System.out.println("El archivo es demasiado pequeño para contener una cabecera ID3v1.");
+		    	 return;
+	    	 }
+	    	 
+	    	 // Ir a los últimos 128 bytes
+	    	 raf.seek(raf.length() - 128);
+	    	 byte[] buffer = new byte[128];
+	    	 raf.readFully(buffer);
+	    	 
+	    	 // Comprobacion de que es una cabecera ID3v1
+	    	 String tag = new String(buffer, 0, 3, StandardCharsets.ISO_8859_1);
+	    	 if (!"TAG".equals(tag)) {
+		    	 System.out.println("No se encontró cabecera ID3v1 en este archivo.");
+		    	 return;
+	    	 }
+	    	 
+	    	 // Convertido a tipo File para poder trabajar con el.
+	    	 File f = new File(archivo);
+	    	 
+	    	 Date fechaAlta = new Date(f.lastModified());
+	    	 String titulo = new String(buffer, 3, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 String artista = new String(buffer, 33, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 String album = new String(buffer, 63, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 String anio = new String(buffer, 93, 4, StandardCharsets.ISO_8859_1).trim();
+	    	 String comentario = new String(buffer, 97, 30, StandardCharsets.ISO_8859_1).trim();
+	    	 
+	    	 int genero = buffer[127] & 0xFF;
+	    	 
+	    	 System.out.println("== Cabecera ID3v1 ==");
+	    	 System.out.println("Fecha de Alta: " + fechaAlta);
+	    	 System.out.println("Título: " + titulo);
+	    	 System.out.println("Artista: " + artista);
+	    	 System.out.println("Álbum: " + album);
+	    	 System.out.println("Año: " + anio);
+	    	 System.out.println("Comentario: " + comentario);
+	    	 System.out.println("Género (código): " + genero);
+	    	 
+	    	 iTunes.peticionITunes("Shape of You", "Ed Sheeran");
+	    	
+	    	 
+	    	 try (FileOutputStream fos = new FileOutputStream("cancion.bin");
+	    			 ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+	    		 
+	    		 	// Creamos la cancion de forma serializada en un archivo cancion.bin
+		    	 	Cancion cancion = new Cancion(fechaAlta, titulo, artista, album, anio, comentario, genero);
+	    			oos.writeObject(cancion);
+	    			
+	    	 	} catch (IOException e) {
+					e.printStackTrace();
+	    	 	}
+	    	 
+    	 	} catch (IOException e) {
+    		 e.printStackTrace();
+		 }
+     }
+     
+     public static void lecturaFichero(String ruta)
+     {
+    	 // Convertimos en tipo File para trabajar con el
+    	File f = new File(ruta);
+    	 
+    	//Comprobamos que el archivo exista y que acabe en .bin
+    	 if(f.isFile() && ruta.endsWith(".bin"))
+    	 {
+	    	 try (FileInputStream fis = new FileInputStream(ruta);
+	    			 ObjectInputStream ois = new ObjectInputStream(fis)) {
+	    		 
+	    			 Cancion cLeida = (Cancion) ois.readObject();
+	    			 // Mostramos la clase seralizada con el toString
+	    			 System.out.println(cLeida);
+	    			 } 
+	    	 catch (IOException | ClassNotFoundException e) {
+	    			  e.printStackTrace();
+			 }
+    	 }
+    	 else {
+    		 System.out.println("Fichero no existente o no valido.");
+    	 }
+     }
+}

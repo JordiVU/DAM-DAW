@@ -1,0 +1,74 @@
+package modules;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+
+public class iTunes {
+	//private String repuesta
+	
+	public iTunes() {
+		
+	}
+
+	public void peticionITunes(String tituloCancion, String artistaCancion) {
+		
+	    System.out.println("ENCONTRADO " + tituloCancion + " " + artistaCancion);
+
+		
+	    HttpClient client = HttpClient.newBuilder()
+	            .version(HttpClient.Version.HTTP_2)
+	            .connectTimeout(Duration.ofSeconds(5))
+	            .build();
+	    
+	    String term = tituloCancion + " " + artistaCancion;
+	    String url = "https://itunes.apple.com/search?entity=song&limit=1&term="
+	            + URLEncoder.encode(term, StandardCharsets.UTF_8);
+
+	    HttpRequest request = HttpRequest.newBuilder()
+	            .uri(URI.create(url))
+	            .timeout(Duration.ofSeconds(10))
+	            .header("Accept", "application/json")
+	            .GET()
+	            .build();
+
+	    try {
+	        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	        if (response.statusCode() == 200) {
+	            String json = response.body();
+	            // Parsear con GSON
+	            JsonObject root = JsonParser.parseString(json).getAsJsonObject();
+	            JsonArray results = root.getAsJsonArray("results");
+
+	            if (results.size() > 0) {
+	                JsonObject song = results.get(0).getAsJsonObject();
+
+	                String caratula = song.get("artworkUrl100").getAsString();
+	                double popularidad = song.has("trackPrice") ? song.get("trackPrice").getAsDouble() : 0.0;
+	                String enlace = song.get("trackViewUrl").getAsString();
+
+	                System.out.println("📀 Información iTunes:");
+	                System.out.println("   Carátula: " + caratula);
+	                System.out.println("   Popularidad: " + popularidad);
+	                System.out.println("   Enlace: " + enlace);
+	            } else {
+	                System.out.println("No se encontró información en iTunes para: " + term);
+	            }
+            } else {
+	            System.err.println("HTTP " + response.statusCode() + " -> " + response.body());
+	        }
+	    } catch (IOException | InterruptedException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+}

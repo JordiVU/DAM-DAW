@@ -1,0 +1,16 @@
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.csproj.AssemblyReference.cache
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\App.g.cs
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2_MarkupCompile.cache
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\bin\Debug\Ejemplo2.exe.config
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\bin\Debug\Ejemplo2.exe
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\bin\Debug\Ejemplo2.pdb
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\MainWindow.g.cs
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2_MarkupCompile.lref
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\MainWindow.baml
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.g.resources
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.Properties.Resources.resources
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.csproj.GenerateResource.cache
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.csproj.CoreCompileInputs.cache
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.exe
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.pdb
+D:\GitHub\DAM-DAW\DIN\Tema3\Ejemplo2\Ejemplo2\obj\Debug\Ejemplo2.exe.config

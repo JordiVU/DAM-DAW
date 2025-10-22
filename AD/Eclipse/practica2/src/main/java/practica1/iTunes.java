@@ -1,0 +1,47 @@
+package practica1;
+
+import java.io.IOException;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+
+public class iTunes {
+	public static void peticionITunes(String tituloCancion, String artistaCancion) {
+	    HttpClient client = HttpClient.newBuilder()
+	            .version(HttpClient.Version.HTTP_2)
+	            .connectTimeout(Duration.ofSeconds(5))
+	            .build();
+
+	    String term = tituloCancion + " " + artistaCancion;
+	    String url = "https://itunes.apple.com/search?entity=song&limit=1&term="
+	            + URLEncoder.encode(term, StandardCharsets.UTF_8);
+
+	    HttpRequest request = HttpRequest.newBuilder()
+	            .uri(URI.create(url))
+	            .timeout(Duration.ofSeconds(10))
+	            .header("Accept", "application/json")
+	            .GET()
+	            .build();
+
+	    try {
+	        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	        if (response.statusCode() == 200) {
+	            String json = response.body();
+	            // Aquí se parsearía con Gson (fuera del alcance de esta guía) 
+	        } else {
+	            System.err.println("HTTP " + response.statusCode() + " -> " + response.body());
+	        }
+	    } catch (IOException | InterruptedException e) {
+	        e.printStackTrace();
+	    }
+	}
+
+}

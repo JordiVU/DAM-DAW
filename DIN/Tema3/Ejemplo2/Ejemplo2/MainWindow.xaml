@@ -1,0 +1,38 @@
+﻿<Window x:Class="Ejemplo2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ejemplo2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <ComboBox Name="Capitales">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding nombreCapital}" />
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="100">
+            <Label FontSize="16" FontWeight="Black" Content="Paises" />
+            <CheckBox Name="TodasC" IsThreeState="True" Content="Aregar Todas" Checked="TodasC_Checked" Unchecked="TodasC_Unchecked" />
+            <StackPanel Margin="15">
+                <CheckBox Name="Madrid" Content="Madrid" Checked="Individual_Checked" Unchecked="Individual_UnChecked"/>
+                <CheckBox Name="Londres" Content="Londres" Checked="Individual_Checked" Unchecked="Individual_UnChecked"/>
+                <CheckBox Name="Berlin" Content="Berlin" Checked="Individual_Checked" Unchecked="Individual_UnChecked"/>
+                <CheckBox Name="Paris" Content="Paris" Checked="Individual_Checked" Unchecked="Individual_UnChecked"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

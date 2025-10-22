@@ -1,0 +1,18 @@
+package modules;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+public class GestionBinario {
+	 try (FileOutputStream fos = new FileOutputStream("cancion.bin");
+			 ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+		 
+		 	// Creamos la cancion de forma serializada en un archivo cancion.bin
+    	 	Cancion cancion = new Cancion(fechaAlta, titulo, artista, album, anio, comentario, genero);
+			oos.writeObject(cancion);
+			
+	 	} catch (IOException e) {
+			e.printStackTrace();
+	 	}
+}
