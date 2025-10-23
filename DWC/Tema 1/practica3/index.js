@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
         title: form.title.value,
         description: form.description.value,
         date: form.deadLine.value,
-        image: imgPreview.src
+        image: imgPreview.src,
+        status: 0
       };
 
       addTaskCard(newTask)
@@ -69,7 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       h4.textContent = newTask.title;
       p.textContent = newTask.description;
-      date.textContent = "Fecha límite: " + newTask.date;
+      date.textContent = "Fecha límite: " + new Date(newTask.date).toLocaleDateString('es-ES'); // La guardamos en el formato español
+      options.value = newTask.status;
 
       if(infoImg.value != ""){ // Comprobacion si el input del formulario esta contemplado.
         // Si esta contemplado lo mostramos.
@@ -82,19 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
         firstDiv.remove();
       });
 
-      options.addEventListener('change', (e) => {
+      options.addEventListener('change', () => {
         // Movemos la tarjeta dependiendo de la opcion del select
-        const option = e.target.value;
-        moveCard(firstDiv, option);
+        moveCard(firstDiv, options.value);
       });
   
       // El lugar predefinido al añadir la tarjeta.
       divPrincipal.appendChild(firstDiv);
     }
-
     function moveCard(card, option) {
     const pending = document.getElementById('divPrincipal');
     const progress = document.getElementById('task-progress');
+
     const completed = document.getElementById('task-completed');
 
     switch (option) {
